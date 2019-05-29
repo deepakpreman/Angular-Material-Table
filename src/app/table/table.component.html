@@ -1,0 +1,79 @@
+<div >
+
+
+  <mat-form-field>
+
+      <input matInput placeholder="Search" #input>
+
+  </mat-form-field>
+
+  <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+
+      <mat-spinner></mat-spinner>
+
+  </div>
+
+  <mat-table class="mat-elevation-z8" [dataSource]="dataSource"
+             matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
+
+      <ng-container matColumnDef="id">
+
+          <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+
+          <mat-cell *matCellDef="let user">{{user.id}}</mat-cell>
+
+      </ng-container>
+
+      <ng-container matColumnDef="avatar">
+
+          <mat-header-cell *matHeaderCellDef>Avatar</mat-header-cell>
+
+          <mat-cell class="avatar-cell"
+                    *matCellDef="let user">{{user.avatar}}</mat-cell>
+
+      </ng-container>
+
+      <ng-container matColumnDef="first_name">
+
+          <mat-header-cell *matHeaderCellDef>first_name</mat-header-cell>
+
+          <mat-cell class="first_name-cell"
+                    *matCellDef="let user">{{user.first_name}}</mat-cell>
+
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+
+        <mat-header-cell *matHeaderCellDef>last_name</mat-header-cell>
+
+        <mat-cell class="last_name-cell"
+                  *matCellDef="let user">{{user.last_name}}</mat-cell>
+
+    </ng-container>
+    <ng-container matColumnDef="email">
+
+      <mat-header-cell *matHeaderCellDef>email</mat-header-cell>
+
+      <mat-cell class="email-cell"
+                *matCellDef="let user">{{user.email}}</mat-cell>
+
+  </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+
+
+  <mat-paginator [length]="totalUser" [pageSize]="3"
+                 [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+
+
+</div>
+
+
+
+
+
+
