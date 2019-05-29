@@ -29,10 +29,7 @@ getUsers(
   return this.http.get(this.api_url+'/api/users', {
       params: new HttpParams()
           .set('page', pageNumber.toString())
-          .set('pageSize', pageSize.toString())
-          .set('id', id.toString())
-          .set('filter', filter)
-          .set('sortOrder', sortOrder)
+          .set('pageSize', pageSize.toString())         
   }).pipe(
       map(res =>  res["data"])
   );

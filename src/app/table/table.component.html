@@ -29,7 +29,8 @@
           <mat-header-cell *matHeaderCellDef>Avatar</mat-header-cell>
 
           <mat-cell class="avatar-cell"
-                    *matCellDef="let user">{{user.avatar}}</mat-cell>
+                    *matCellDef="let user"> <img src={{user.avatar}} alt="Avatar Image" height="42" width="42"> 
+                    </mat-cell>
 
       </ng-container>
 
